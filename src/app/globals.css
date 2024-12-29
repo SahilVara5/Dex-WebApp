@@ -1,42 +1,114 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* Primary Color Palette */
+  --color-primary-darkest: #020009;
+  --color-primary-bright: #00ff55;
+  
+  /* Extended Color Palette */
+  --color-secondary-dark: #012a14;
+  --color-secondary-medium: #034a23;
+  --color-accent-green: #0cff6c;
+  --color-text-light: #e0e0e0;
+  --color-text-muted: #8c8c8c;
+  
+  /* Semantic Colors */
+  --color-success: #00ff55;
+  --color-error: #ff4136;
+  --color-warning: #ff851b;
 }
 
 * {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-primary-darkest);
+  color: var(--color-text-light);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+}
+
+h1 {
+  color: var(--color-primary-bright);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  color: var(--color-accent-green);
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.875rem;
+}
+
+h3 {
+  color: var(--color-text-light);
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  color: var(--color-text-light);
+  font-size: 1rem;
+  margin-bottom: 1rem;
 }
 
 a {
-  color: inherit;
+  color: var(--color-primary-bright);
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+a:hover {
+  color: var(--color-accent-green);
+  text-decoration: underline;
+}
+
+button {
+  background-color: var(--color-primary-bright);
+  border: none;
+  border-radius: 8px;
+  color: var(--color-primary-darkest);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--color-accent-green);
+  transform: scale(1.05);
+}
+
+button:disabled {
+  background-color: var(--color-text-muted);
+  cursor: not-allowed;
+}
+
+li {
+  color: var(--color-text-light);
+  list-style-type: none;
+  margin-bottom: 0.5rem;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-secondary-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary-bright);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-green);
 }
