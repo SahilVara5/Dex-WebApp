@@ -1,7 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   /* Primary Color Palette */
   --color-primary-darkest: #020009;
   --color-primary-bright: #00ff55;
+
+  --color-hover-primary-bright: #00ff55db;
   
   /* Extended Color Palette */
   --color-secondary-dark: #012a14;
@@ -56,18 +62,7 @@ p {
   margin-bottom: 1rem;
 }
 
-a {
-  color: var(--color-primary-bright);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: var(--color-accent-green);
-  text-decoration: underline;
-}
-
-button {
+.button-global {
   background-color: var(--color-primary-bright);
   border: none;
   border-radius: 8px;
@@ -79,7 +74,7 @@ button {
   transition: all 0.3s ease;
 }
 
-button:hover {
+.button-global:hover {
   background-color: var(--color-accent-green);
   transform: scale(1.05);
 }

@@ -1,0 +1,8 @@
+.preferences-box {
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.preferences-box.show {
+  opacity: 1;
+}
