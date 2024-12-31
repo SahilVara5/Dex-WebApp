@@ -514,10 +514,19 @@ const Navbar = () => {
       {/* Mobile Menu Overlay */}
       {isMobile && isMenuOpen && (
         <div className="fixed inset-0 bg-[#020009] z-50 flex flex-col items-center justify-start pt-10">
-          {/* Logo and Title for Mobile Menu - Positioned at the top */}
+
+          <button
+            onClick={toggleMobileMenu}
+            className="fixed top-6 right-6 text-[#00ff55] hover:text-[#00ff55db]"
+          >
+            <IoCloseOutline size={24} />
+          </button>
+
           <div className="flex flex-col items-center mb-6">
-            <Image src="/main-logo.svg" alt="Foxel Logo" width={48} height={48} />
-            <span className="text-2xl font-bold text-[#00ff55]">Foxel</span>
+            <Link href="/" onClick={toggleMobileMenu} className="flex flex-col items-center">
+              <Image src="/main-logo.svg" alt="Foxel Logo" width={48} height={48} />
+              <span className="text-2xl font-bold text-[#00ff55]">Foxel</span>
+            </Link>
           </div>
 
           {/* Navigation Links */}
