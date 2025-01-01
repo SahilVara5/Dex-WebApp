@@ -1,0 +1,78 @@
+/* SearchToken.module.css */
+.searchContainer {
+  position: relative;
+  width: 100%;
+  max-width: 28rem;
+}
+
+.searchWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 0.75rem;
+  color: #9ca3af;
+}
+
+.searchInput {
+  width: 100%;
+  padding-left: 2.5rem;
+  padding-right: 3rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: #012a14;
+  color: white;
+  border-radius: 0.5rem;
+}
+
+.searchInput:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #00ff55;
+}
+
+.tokenDropdown {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  margin-top: 0.25rem;
+  background-color: #023a24;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  max-height: 15rem;
+  overflow-y: auto;
+}
+
+.tokenItem {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.tokenItem:hover {
+  background-color: #034a23;
+}
+
+.tokenHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tokenSymbol {
+  font-weight: bold;
+}
+
+.tokenName {
+  font-size: 0.875rem;
+  color: #9ca3af;
+}
+
+.tokenAddress {
+  font-size: 0.75rem;
+  color: #6b7280;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
