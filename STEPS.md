@@ -5,8 +5,8 @@
 - [x] Create Next.js project structure
 - [x] Set up global CSS with color palette
 - [ ] Develop core components:
-  - [ ] Navbar
-  - [ ] SearchToken
+  - [x] Navbar
+  - [x] SearchToken
   - [ ] TokenList
   - [ ] Toggle
 - [ ] Implement responsive design
