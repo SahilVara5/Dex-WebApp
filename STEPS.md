@@ -4,7 +4,7 @@
 ### Frontend Development
 - [x] Create Next.js project structure
 - [x] Set up global CSS with color palette
-- [ ] Develop core components:
+- [x] Develop core components:
   - [x] Navbar
   - [x] SearchToken
   - [x] TokenList
@@ -13,7 +13,7 @@
 - [x] Create basic swap interface
 
 ### Blockchain Integration Solana Smart Contract
-- [ ] Set up Web3 wallet connection (MetaMask)
+- [x] Set up Web3 wallet connection
 - [ ] Implement token swap functionality
 - [ ] Add basic error handling
 - [ ] Implement transaction confirmation
