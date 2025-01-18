@@ -7,12 +7,12 @@
 - [ ] Develop core components:
   - [x] Navbar
   - [x] SearchToken
-  - [ ] TokenList
-  - [ ] Toggle
-- [ ] Implement responsive design
-- [ ] Create basic swap interface
+  - [x] TokenList
+  - [x] Toggle
+- [x] Implement responsive design
+- [x] Create basic swap interface
 
-### Blockchain Integration
+### Blockchain Integration Solana Smart Contract
 - [ ] Set up Web3 wallet connection (MetaMask)
 - [ ] Implement token swap functionality
 - [ ] Add basic error handling

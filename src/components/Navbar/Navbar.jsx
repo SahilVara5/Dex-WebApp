@@ -106,7 +106,7 @@ const Navbar = () => {
         {/* Settings Icon with Preferences Box */}
         <div className="relative">
           <IoSettingsSharp
-            className="text-[#00ff55] hover:text-[#00ff55db] hover:cursor-pointer"
+            className="text-[#00ff55db] hover:text-[#00ff55] hover:cursor-pointer"
             size={24}
             onClick={() => setShowPreferences((prev) => !prev)} // Toggle preferences on click
           />
@@ -151,7 +151,7 @@ const Navbar = () => {
           </button>
         ) : (
           <>
-            <button className="bg-[#00ff55] hover:bg-[#00ff55db] text-[#021207] px-4 py-2 rounded-full transition duration-150 ease-in-out hover:scale-105 hover:shadow-lg">
+            <button className="bg-[#00ff55db] hover:bg-[#00ff55] text-[#021207] px-4 py-2 rounded-full transition duration-150 ease-in-out hover:scale-105 hover:shadow-lg">
               Connect
             </button>
           </>
@@ -196,7 +196,7 @@ const Navbar = () => {
             {/* Additional Mobile Menu Items */}
             <div className="mt-6 space-y-4">
               <button 
-                className="bg-[#00ff55] hover:bg-[#00ff55db] text-[#021207] px-6 py-3 rounded-full"
+                className="bg-[#00ff55db] hover:bg-[#00ff55] text-[#021207] px-6 py-3 rounded-full"
                 onClick={toggleMobileMenu}
               >
                 Connect Wallet
