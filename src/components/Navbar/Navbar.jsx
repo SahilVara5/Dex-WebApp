@@ -10,6 +10,9 @@ import {
   IoCloseOutline,
 } from "react-icons/io5";
 import SearchToken from "../SearchToken/SearchToken";
+import { useSolanaWallet } from "@/blockchain/hooks/useSolanaWallet";
+import WalletSelectionModal from "../common/WalletSelectionModal";
+import WalletDisconnectModal from "../common/WalletDisconnectModal";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -17,6 +20,17 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showPreferences, setShowPreferences] = useState(false);
   const [theme, setTheme] = useState("system"); // Default theme
+
+  // connection with wallet parameters
+  const {
+    isConnected,
+    publicKey,
+    connect,
+    disconnect,
+  } = useSolanaWallet();
+
+  const [isWalletModalOpen, setIsWalletModalOpen] = useState(false);
+  const [isDisconnectModalOpen, setIsDisconnectModalOpen] = useState(false);
 
   // Navigation links with active state
   const navLinks = [
@@ -61,6 +75,32 @@ const Navbar = () => {
   // Toggle mobile menu
   const toggleMobileMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const formatWalletAddress = (address) => {
+    if (!address) return '';
+    return `${address.slice(0, 4)}...${address.slice(-4)}`;
+  };
+
+  const handleConnectWallet = () => {
+    if (!publicKey) {
+      setIsWalletModalOpen(true);
+    } else {
+      setIsDisconnectModalOpen(true);
+    }
+  };
+
+  const handleCloseWalletModal = () => {
+    setIsWalletModalOpen(false);
+  };
+
+  const handleCloseDisconnectModal = () => {
+    setIsDisconnectModalOpen(false);
+  };
+
+  const handleConfirmDisconnect = () => {
+    disconnect();
+    handleCloseDisconnectModal();
   };
 
   // Handle theme change
@@ -151,12 +191,30 @@ const Navbar = () => {
           </button>
         ) : (
           <>
-            <button className="bg-[#00ff55db] hover:bg-[#00ff55] text-[#021207] px-4 py-2 rounded-full transition duration-150 ease-in-out hover:scale-105 hover:shadow-lg">
+            {/* <button className="bg-[#00ff55db] hover:bg-[#00ff55] text-[#021207] px-4 py-2 rounded-full transition duration-150 ease-in-out hover:scale-105 hover:shadow-lg">
               Connect
-            </button>
+            </button> */}
+              <button
+                onClick={handleConnectWallet}
+                className="bg-[#00ff55db] hover:bg-[#00ff55] text-[#021207] px-4 py-2 rounded-full transition duration-150 ease-in-out hover:scale-105 hover:shadow-lg"
+              >
+                {publicKey ? formatWalletAddress(publicKey) : 'Connect'}
+              </button>
           </>
         )}
       </div>
+
+      <WalletSelectionModal 
+        isOpen={isWalletModalOpen}
+        onClose={handleCloseWalletModal}
+      />
+
+      <WalletDisconnectModal 
+        isOpen={isDisconnectModalOpen}
+        onClose={handleCloseDisconnectModal}
+        onConfirmDisconnect={handleConfirmDisconnect}
+        publicKey={publicKey}
+      />
 
       {/* Mobile Menu Overlay */}
       {isMobile && isMenuOpen && (
@@ -195,11 +253,17 @@ const Navbar = () => {
             
             {/* Additional Mobile Menu Items */}
             <div className="mt-6 space-y-4">
-              <button 
+              {/* <button 
                 className="bg-[#00ff55db] hover:bg-[#00ff55] text-[#021207] px-6 py-3 rounded-full"
                 onClick={toggleMobileMenu}
               >
                 Connect Wallet
+              </button> */}
+              <button
+                onClick={handleConnectWallet}
+                className="bg-[#00ff55db] hover:bg-[#00ff55] text-[#021207] px-4 py-2 rounded-full transition duration-150 ease-in-out hover:scale-105 hover:shadow-lg"
+              >
+                {publicKey ? formatWalletAddress(publicKey) : 'Connect'}
               </button>
             </div>
           </div>
